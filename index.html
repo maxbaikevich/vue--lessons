@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<div id="app">
+    <div>
+        <p>{{title}}= {{counter}}</p>
+        <button v-on:click="riseCounter(5, 'изменено на 5', $event)">Увеличить на 5</button>
+        <button v-on:click="riseCounter(10, 'изменено на 10', $event)">Увеличить на 10</button>
+    </div>
+</div>
+
+
+<body>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    counter: 0,
+    counter2: 0,
+    title: 'счетчик',
+  },
+  methods:{
+    riseCounter: function(num, str, event){
+        this.counter+=num
+        this.title = str
+        if(num === 5) {
+            event.target.style.color = 'red'
+        }
+        else if(num = 10) {
+            event.target.style.color=  'blue'
+        }
+    }
+  }
+})
+
+</script>
